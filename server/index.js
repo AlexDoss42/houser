@@ -14,5 +14,7 @@ massive(CONNECTION_STRING).then(db => {
 }).catch(() => console.log(`You have a problem at the massive invocation`))
 
 app.get('/dashboard', ctrl.getAll)
+app.post('/wizard', ctrl.addListing)
+app.delete('/dashboard/:id', ctrl.deleteListing)
 
 app.listen(SERVER_PORT, () => console.log(`It's over Anakin. I have the ${SERVER_PORT} port`))

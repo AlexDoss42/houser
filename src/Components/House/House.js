@@ -4,6 +4,7 @@ import React, { Component } from 'react'
 export default class House extends Component {
 
   render() {
+    let house = this.props
     return (
       <div>
 
@@ -19,7 +20,9 @@ export default class House extends Component {
           <h3>Zipcode: {this.props.house.zip}</h3>
           <h3>List Price: ${this.props.house.mortgage}</h3>
           <h3>Rent: ${this.props.house.rent}</h3>
-          <button>Delete</button>
+          <button
+          onClick={() => {this.props.deleteListing(house)}}
+          >Delete</button>
         </div>
 
       </div>
