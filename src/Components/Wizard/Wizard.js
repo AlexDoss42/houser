@@ -23,23 +23,20 @@ export default class Wizard extends Component {
     })
   }
 
-  handleClick() {
-    // let newHouse = this.state
+  //HOW THE EFF DOES THIS WORK!!!
+
+  handleClick = () => {
+    let newHouse = this.state
     console.log('Handle Click is working')
-    // this.addListing(newHouse)
+    this.addListing(newHouse)
   }
 
   addListing = (newHouse) => {
-    const { name, address, city, state, zip } = this.state
 
     axios.post('/wizard', newHouse)
       .then(res => {
         this.setState({
-          name: name,
-          address: address,
-          city: city,
-          state: state,
-          zipcode: zip
+          houses: res.data
         })
         console.log('you added a new listing')
       }).catch(err => console.log('You are having an issue with your AddListing function in Wizard.js', err))

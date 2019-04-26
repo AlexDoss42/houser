@@ -32,6 +32,8 @@ export default class Dashboard extends Component {
     .catch(() => console.log(`Your axios.get for getAllHouses is not working`))
   }
 
+  //WHY THE **** do I have to do house.house.id???
+
   deleteListing = (house) => {
     axios.delete(`/dashboard/${house.house.id}`, house.house)
     .then(res => {
