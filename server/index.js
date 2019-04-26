@@ -13,6 +13,6 @@ massive(CONNECTION_STRING).then(db => {
   console.log(`It's working!!! IT'S WORKING!!!!`)
 }).catch(() => console.log(`You have a problem at the massive invocation`))
 
-
+app.get('/dashboard', ctrl.getAll)
 
 app.listen(SERVER_PORT, () => console.log(`It's over Anakin. I have the ${SERVER_PORT} port`))

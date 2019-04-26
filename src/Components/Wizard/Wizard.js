@@ -27,7 +27,7 @@ export default class Wizard extends Component {
 
       <div>
         <h1>YOU'RE A WIZARD HARRY</h1>
-        <Link to='/'><button>Cancel</button></Link>
+        <Link to='/dashboard'><button>Cancel</button></Link>
         <div className='wizardInputs'>
           
           <input
