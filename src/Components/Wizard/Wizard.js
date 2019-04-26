@@ -27,7 +27,6 @@ export default class Wizard extends Component {
 
   handleClick = () => {
     let newHouse = this.state
-    console.log('Handle Click is working')
     this.addListing(newHouse)
   }
 
@@ -38,7 +37,6 @@ export default class Wizard extends Component {
         this.setState({
           houses: res.data
         })
-        console.log('you added a new listing')
       }).catch(err => console.log('You are having an issue with your AddListing function in Wizard.js', err))
   }
 
