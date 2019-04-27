@@ -12,16 +12,6 @@ export default class Dashboard extends Component {
     }
   }
 
-   // getAllHouses () {
-  //   axios.get('/dashboard')
-  //   .then(res => {
-  //     this.setState({
-  //       houses: res.data
-  //     })
-  //   })
-  //   .catch(() => console.log(`Your axios.get for getAllHouses is not working`))
-  // }
-
   componentDidMount(){
     axios.get('/dashboard')
     .then(res => {
@@ -51,7 +41,7 @@ export default class Dashboard extends Component {
     return (
       <div>
         <h1>Dashboard</h1>
-        <Link to='/wizard'><button>Add New Property</button></Link>
+        <Link to='/wizard/step1'><button>Add New Property</button></Link>
 
         {houses.map((house, i) => {
           return (

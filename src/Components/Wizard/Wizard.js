@@ -1,45 +1,10 @@
 import React, { Component } from 'react'
-import { Link } from 'react-router-dom'
-import axios from 'axios'
-
+import { Link, Switch, Route } from 'react-router-dom'
+import StepOne from '../Steps/StepOne'
+import StepTwo from '../Steps/StepTwo'
+import StepThree from '../Steps/StepThree'
 
 export default class Wizard extends Component {
-  constructor(props) {
-    super(props)
-
-    this.state = {
-      name: '',
-      address: '',
-      city: '',
-      state: '',
-      zipcode: ''
-    }
-  }
-
-  handleChange(e) {
-    const { name, value } = e.target
-    this.setState({
-      [name]: value
-    })
-  }
-
-  //HOW THE EFF DOES THIS WORK!!!
-
-  handleClick = () => {
-    let newHouse = this.state
-    this.addListing(newHouse)
-  }
-
-  addListing = (newHouse) => {
-
-    axios.post('/wizard', newHouse)
-      .then(res => {
-        this.setState({
-          houses: res.data
-        })
-      }).catch(err => console.log('You are having an issue with your AddListing function in Wizard.js', err))
-  }
-
 
   render() {
     return (
@@ -47,47 +12,21 @@ export default class Wizard extends Component {
       <div>
         <h1>YOU'RE A WIZARD HARRY</h1>
         <Link to='/dashboard'><button>Cancel</button></Link>
-        <div className='wizardInputs'>
+        <Switch>
 
-          <input
-            type='text'
-            placeholder='Name of listing'
-            name='name'
-            onChange={e => this.handleChange(e)}
-          />
+          <Route path ='/wizard/step1' component={StepOne}/>
+          <Route path ='/wizard/step2' component={StepTwo}/>
+          <Route path ='/wizard/step3' component={StepThree}/>
+        
+        </Switch>
+       
+      <div className='navBtns'>
 
-          <input
-            type='text'
-            placeholder='Street Address'
-            name='address'
-            onChange={e => this.handleChange(e)}
-          />
+        <button>Previous</button>
+        <button>Next</button>
+      
+      </div>
 
-          <input
-            type='text'
-            placeholder='City'
-            name='city'
-            onChange={e => this.handleChange(e)}
-          />
-
-          <input
-            type='text'
-            placeholder='State'
-            name='state'
-            onChange={e => this.handleChange(e)}
-          />
-
-          <input
-            type='text'
-            placeholder='Zipcode'
-            name='zipcode'
-            onChange={e => this.handleChange(e)}
-          />
-
-          <button 
-          onClick={this.handleClick}>Complete</button>
-
-        </div>
       </div>
     )
   }
